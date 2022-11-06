@@ -9,30 +9,41 @@
   </head>
   <body>
     <div class="Gameplan">
-      <div class="topBar"></div>
+      <div class="topBar">
+        <div class="dropDownMenu">
+          <button class="dropDownButton">Menu</button>
+          <div class="dropDownContent">
+            <a href="#" onclick="chooseWeekdays()">Veckodagar</a>
+            <a href="#">Djur</a>
+            <a href="#">Tyska</a>
+          </div>
+        </div>
+      </div>
       <div class="GameplanHigher">
-        <div class="card">
-          <div class="cardWord"></div>
-          <form>
+        <div class="card" id="cardID">
+          <div class="cardWord" id="cardWordID"></div>
+          <form id="inputForm" autocomplete="off">
             <input
+              id="input"
               type="text"
               class="cardWordInput"
               placeholder="Enter your answer"
             />
           </form>
-        </div>
-        <div class="StreakCounter">
-          <div class="StreakCounterNumber">0</div>
-          <div class="StreakCounterText">Streak</div>
-        </div>
-      </div>
-      <div class="GameplanLower">
-        <div class="timer">
-          <div class="timerText">Time</div>
-          <div class="timerValue">00:00</div>
+          <div class="StreakCounter">
+            <div class="StreakCounterIcon">
+              <img
+                src="Assets/flame.svg"
+                alt="StreakCounterIcon"
+                id="streakIcon"
+              />
+              <div class="StreakCounterNumber" id="StreakCounterID">0</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <script src="script.js"></script>
+    <script src="Words1.js"></script>
   </body>
 </html>

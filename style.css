@@ -1,3 +1,4 @@
+@import url("https://fonts.google.com/specimen/Baloo+2");
 body {
   background-color: #111111;
   color: #ffffff;
@@ -7,15 +8,19 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vh;
 }
 
 .card {
-  background-color: #4b29d5;
+  background: #6c11c8;
+  box-shadow: 23px 23px 50px #000000, -23px -23px 50px #000000;
+  margin-top: 20vh;
   color: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  margin: 20px;
+  border-style: solid;
+  border-color: #f8fdff;
+  border-radius: 15px;
+  margin: auto;
   padding: 20px;
   width: 200px;
   height: 350px;
@@ -24,12 +29,15 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 50px;
+  transition: 0.3s ease-out;
 }
 
 .cardWord {
   font-size: 48px;
   font-weight: normal;
   text-align: center;
+  height: 50%;
+  margin-top: 40%;
 }
 
 .cardWordInput {
@@ -46,7 +54,7 @@ body {
   color: #7c7c7c;
   display: flex;
   flex-direction: column;
-  justify-content: space=-;
+  justify-content: space-between;
 }
 .timerText {
   font-size: 40px;
@@ -57,21 +65,91 @@ body {
 .Gameplan {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-  height: 100%;
+  justify-content: space-around;
+  height: 97vh;
+  width: 100vw;
 }
 .GameplanHigher {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
 .StreakCounter {
+  height: 30%;
+  width: 100%;
+  display: flex;
   font-size: 50px;
-  background-color: rgb(238, 10, 10);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
+.StreakCounterNumber {
+  font-size: 76px;
+
+  color: #ffffff;
+}
+
 .topBar {
-  background-color: aqua;
-  height: 10vh;
+}
+.StreakCounterIcon {
+  height: 0px;
+  width: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+#streakIcon {
+  height: 60px;
+  width: 50px;
+}
+.dropDownMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3%;
   width: 100vw;
+
+  position: fixed;
+  top: 0;
+}
+.dropDownContent {
+  display: none;
+  position: absolute;
+  background-color: #292929;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropDownContent a {
+  color: rgb(0, 0, 0);
+  padding: 2px 6px;
+  text-decoration: none;
+  display: block;
+}
+.dropDownContent a:hover {
+  background-color: rgba(221, 221, 221, 0.29);
+}
+.dropDownMenu:hover .dropDownContent {
+  display: block;
+
+  margin-top: 2%;
+}
+
+.dropDownButton {
+  background-color: #303030;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  font-family: "Baloo 2", cursive;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
 }
