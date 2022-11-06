@@ -1,0 +1,77 @@
+body {
+  background-color: #111111;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #4b29d5;
+  color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  height: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+.cardWord {
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.cardWordInput {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: #330dc8 0px 0px 0px 2px outset;
+  background-color: #ffffff;
+}
+
+.timer {
+  text-align: center;
+  color: #7c7c7c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space=-;
+}
+.timerText {
+  font-size: 40px;
+}
+.timerValue {
+  font-size: 64px;
+}
+.Gameplan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+}
+.GameplanHigher {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.StreakCounter {
+  font-size: 50px;
+  background-color: rgb(238, 10, 10);
+}
+.topBar {
+  background-color: aqua;
+  height: 10vh;
+  width: 100vw;
+}
