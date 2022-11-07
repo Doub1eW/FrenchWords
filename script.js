@@ -1,28 +1,50 @@
 totalStreak = 0;
 
-let Words = [];
+//let Words = [{ word: "Rouge", translation: "röd" }];
 let word;
 let rn;
+let WordlistChoice;
 
-const getRandomWord = () => {
-  let rn = Words[Math.floor(Math.random() * Words.length)];
+function getRandomWord(wordlist) {
+  console.log(wordlist);
+  let rn = wordlist[Math.floor(Math.random() * wordlist.length)];
   console.log(rn.word);
-  document.getElementById("cardWordID").innerHTML = rn.word;
+  document.querySelector("#cardWordID").innerHTML = rn.word;
   return rn;
-};
+}
 
-let rnWord = getRandomWord();
+function setWordlistChoiceTo1() {
+  WordlistChoice = 1;
+  console.log(WordlistChoice);
+  chooseWordlist(WordlistChoice);
+  return WordlistChoice;
+}
+
+function setWordlistChoiceTo2() {
+  WordlistChoice = 2;
+  console.log(WordlistChoice);
+  console.log(wordlist);
+  chooseWordlist(WordlistChoice);
+  return WordlistChoice;
+}
+
+function chooseWordlist(WordlistChoice) {
+  if ((WordlistChoice = 1)) {
+    wordlist = chooseWeekdays();
+  } else if ((WordlistChoice = 2)) {
+    wordlist = chooseAnimals();
+  }
+  getRandomWord(wordlist);
+  return wordlist;
+}
+
+let rnWord = getRandomWord(chooseWordlist());
 
 console.log(rnWord);
 let inputValue;
 
-const weekdaySelect = document.querySelector("#weekDaysID");
-weekdaySelect.addEventListener("click", function () {
-  chooseWeekdays();
-});
-
 function chooseWeekdays() {
-  Words = [
+  wordlist = [
     { word: "Lundi", translation: "måndag" },
     { word: "Mardi", translation: "tisdag" },
     { word: "Mercredi", translation: "onsdag" },
@@ -31,19 +53,34 @@ function chooseWeekdays() {
     { word: "Samedi", translation: "lördag" },
     { word: "Dimanche", translation: "söndag" },
   ];
-  getRandomWord();
+  return wordlist;
+}
+
+function chooseAnimals() {
+  wordlist = [
+    { word: "Chien", translation: "hund" },
+    { word: "Chat", translation: "katt" },
+    { word: "Poisson", translation: "fisk" },
+    { word: "Oiseau", translation: "fågel" },
+    { word: "Lapin", translation: "kanin" },
+    { word: "Vache", translation: "ko" },
+    { word: "Cheval", translation: "häst" },
+  ];
+  return wordlist;
 }
 
 const inputForm = document.querySelector("#inputForm");
 inputForm.addEventListener("submit", function (e) {
+  console.log("test123");
   e.preventDefault();
-  console.log("test");
+
   inputValue = inputForm.querySelector("input").value;
   console.log(inputValue);
 
   console.log(inputValue);
   document.querySelector("#input").value = "";
   checkTranslation(inputValue);
+  rnWord = getRandomWord(chooseWeekdays());
 });
 
 function checkTranslation(inputValue) {

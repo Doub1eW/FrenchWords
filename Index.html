@@ -13,8 +13,10 @@
         <div class="dropDownMenu">
           <button class="dropDownButton">Menu</button>
           <div class="dropDownContent">
-            <a href="#" onclick="chooseWeekdays()">Veckodagar</a>
-            <a href="#">Djur</a>
+            <a href="#" onclick="chooseWeekdays(),setWordlistChoiceTo1()"
+              >Veckodagar</a
+            >
+            <a href="#" onclick="setWordlistChoiceTo2()">Djur</a>
             <a href="#">Tyska</a>
           </div>
         </div>
@@ -22,7 +24,7 @@
       <div class="GameplanHigher">
         <div class="card" id="cardID">
           <div class="cardWord" id="cardWordID"></div>
-          <form id="inputForm" autocomplete="off">
+          <form id="inputForm" autocomplete="off" d>
             <input
               id="input"
               type="text"
