@@ -11,15 +11,16 @@
     <div class="Gameplan">
       <div class="topBar">
         <div class="dropDownMenu">
-          <button class="dropDownButton">Menu</button>
+          <button class="dropDownButton"></button>
           <div class="dropDownContent">
             <a href="#" onclick="chooseWeekdays(),setWordlistChoiceTo1()"
               >Veckodagar</a
             >
-            <a href="#" onclick="setWordlistChoiceTo2(),resetPage()">Djur</a>
-            <a href="#" onclick="setWordlistChoiceTo3(),resetPage()">Månader</a>
+            <a href="#" onclick="setWordlistChoiceTo2()">Djur</a>
+            <a href="#" onclick="setWordlistChoiceTo3()">Månader</a>
           </div>
         </div>
+        <div class="timeCounter"></div>
       </div>
       <div class="GameplanHigher">
         <div class="card" id="cardID">
@@ -29,7 +30,7 @@
               id="input"
               type="text"
               class="cardWordInput"
-              placeholder="Enter your answer"
+              placeholder=""
             />
           </form>
           <div class="StreakCounter">
@@ -41,6 +42,34 @@
               />
               <div class="StreakCounterNumber" id="StreakCounterID">0</div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="GameplanLower">
+        <div class="MenuHandler">
+          <div
+            class="menuitem1"
+            onmouseover="moveMenuItem1()"
+            onmouseleave="moveMenuItem1Back()"
+            onclick="setWordlistChoiceTo3()"
+          >
+            <div class="menuitem1title">Månader</div>
+          </div>
+          <div
+            class="menuitem2"
+            onmouseover="moveMenuItem2()"
+            onmouseleave="moveMenuItem2Back()"
+            onclick="setWordlistChoiceTo1()"
+          >
+            <div class="menuitem2title">Veckodagar</div>
+          </div>
+          <div
+            class="menuitem3"
+            onmouseover="moveMenuItem3()"
+            onmouseleave="moveMenuItem3Back()"
+            onclick="setWordlistChoiceTo2()"
+          >
+            <div class="menuitem3title">Djur</div>
           </div>
         </div>
       </div>

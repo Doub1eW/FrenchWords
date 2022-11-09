@@ -1,16 +1,17 @@
 totalStreak = 0;
 
-//let Words = [{ word: "Rouge", translation: "röd" }];
 let word;
 let rn;
-let WordlistChoice;
+let WordlistChoice = 1;
+let rnWord;
+
+rnWord = getRandomWord(chooseWordlist(WordlistChoice));
 
 function getRandomWord(wordlist) {
   console.log(wordlist);
   let rn = wordlist[Math.floor(Math.random() * wordlist.length)];
-
-  document.querySelector("#cardWordID").innerHTML = rn.word;
   console.log(rn);
+  document.querySelector("#cardWordID").innerHTML = rn.word;
   return rn;
 }
 
@@ -20,99 +21,89 @@ function resetPage() {
 }
 
 function setWordlistChoiceTo1() {
-  WordlistChoice = 0;
   WordlistChoice = 1;
-  console.log(WordlistChoice);
+
   chooseWordlist(WordlistChoice);
   return WordlistChoice;
 }
 
 function setWordlistChoiceTo2() {
-  WordlistChoice = 0;
   WordlistChoice = 2;
-  console.log(WordlistChoice);
-  console.log(wordlist);
+
   chooseWordlist(WordlistChoice);
   return WordlistChoice;
 }
 
 function setWordlistChoiceTo3() {
-  WordlistChoice = 0;
   WordlistChoice = 3;
-  console.log(WordlistChoice);
-  console.log(wordlist);
+
   chooseWordlist(WordlistChoice);
   return WordlistChoice;
 }
 
 function chooseWordlist(WordlistChoice) {
+  console.log(WordlistChoice);
   if (WordlistChoice == 1) {
     wordlist = chooseWeekdays();
   } else if (WordlistChoice == 2) {
     wordlist = chooseAnimals();
   } else if (WordlistChoice == 3) {
     wordlist = chooseMonths();
-  } else {
-    wordlist = chooseWeekdays();
   }
-
-  getRandomWord(wordlist);
+  rnWord = getRandomWord(wordlist);
   return wordlist;
 }
-
-let rnWord = getRandomWord(chooseWordlist());
 
 let inputValue;
 
 function chooseWeekdays() {
   wordlist = [
-    { word: "Lundi", translation: "måndag" },
-    { word: "Mardi", translation: "tisdag" },
-    { word: "Mercredi", translation: "onsdag" },
-    { word: "Jeudi", translation: "torsdag" },
-    { word: "Vendredi", translation: "fredag" },
-    { word: "Samedi", translation: "lördag" },
-    { word: "Dimanche", translation: "söndag" },
+    { word: "Måndag", translation: "lundi" },
+    { word: "Tisdag", translation: "mardi" },
+    { word: "Onsdag", translation: "mercredi" },
+    { word: "Torsdag", translation: "jeudi" },
+    { word: "Fredag", translation: "vendredi" },
+    { word: "Lördag", translation: "samedi" },
+    { word: "söndag", translation: "dimanche" },
   ];
   return wordlist;
 }
 
 function chooseMonths() {
   wordlist = [
-    { word: "Janvier", translation: "januari" },
-    { word: "Février", translation: "februari" },
+    { word: "Januari", translation: "janvier" },
+    { word: "Februari", translation: "février" },
     { word: "Mars", translation: "mars" },
-    { word: "Avril", translation: "april" },
-    { word: "Mai", translation: "maj" },
-    { word: "Juin", translation: "juni" },
-    { word: "Juillet", translation: "juli" },
-    { word: "Août", translation: "augusti" },
-    { word: "Septembre", translation: "september" },
-    { word: "Octobre", translation: "oktober" },
-    { word: "Novembre", translation: "november" },
-    { word: "Décembre", translation: "december" },
+    { word: "April", translation: "avril" },
+    { word: "Maj", translation: "mai" },
+    { word: "Juni", translation: "juin" },
+    { word: "Juli", translation: "juillet" },
+    { word: "Augusti", translation: "août" },
+    { word: "September", translation: "septembre" },
+    { word: "Oktober", translation: "octobre" },
+    { word: "November", translation: "novembre" },
+    { word: "December", translation: "décembre" },
   ];
   return wordlist;
 }
 
 function chooseAnimals() {
   wordlist = [
-    { word: "Chien", translation: "hund" },
-    { word: "Chat", translation: "katt" },
-    { word: "Poisson", translation: "fisk" },
-    { word: "Oiseau", translation: "fågel" },
-    { word: "Lapin", translation: "kanin" },
-    { word: "Vache", translation: "ko" },
-    { word: "Cheval", translation: "häst" },
-    { word: "Poule", translation: "höna" },
-    { word: "Poulet", translation: "kyckling" },
+    { word: "Hund", translation: "chien" },
+    { word: "Katt", translation: "chat" },
+    { word: "Fisk", translation: "poisson" },
+    { word: "Fågel", translation: "oiseau" },
+    { word: "Kanin", translation: "lapin" },
+    { word: "Ko", translation: "vache" },
+    { word: "Häst", translation: "cheval" },
+    { word: "Höna", translation: "poule" },
+    { word: "Kyckling", translation: "poulet" },
   ];
   return wordlist;
 }
 
 const inputForm = document.querySelector("#inputForm");
 inputForm.addEventListener("submit", function (e) {
-  console.log("test123");
   e.preventDefault();
 
   inputValue = inputForm.querySelector("input").value;
@@ -122,9 +113,32 @@ inputForm.addEventListener("submit", function (e) {
   rnWord = getRandomWord(chooseWordlist());
 });
 
+function moveMenuItem1() {
+  document.querySelector(".menuitem1").style.transform = "translateY(-20%)";
+}
+
+function moveMenuItem1Back() {
+  document.querySelector(".menuitem1").style.transform = "translateY(0%)";
+}
+
+function moveMenuItem2() {
+  document.querySelector(".menuitem2").style.transform = "translateY(-20%)";
+}
+
+function moveMenuItem2Back() {
+  document.querySelector(".menuitem2").style.transform = "translateY(0%)";
+}
+
+function moveMenuItem3() {
+  document.querySelector(".menuitem3").style.transform = "translateY(-20%)";
+}
+
+function moveMenuItem3Back() {
+  document.querySelector(".menuitem3").style.transform = "translateY(0%)";
+}
+
 function checkTranslation(inputValue) {
   if (inputValue == rnWord.translation) {
-    console.log(rnWord.translation);
     var audio = new Audio("Assets/ding.mp3");
     audio.play();
     (document.querySelector(".card").style.transform = "translateY(-50%)"),
@@ -139,7 +153,6 @@ function checkTranslation(inputValue) {
       }, 300);
     AddOneToStreak();
   } else {
-    console.log(rnWord.translation);
     var audio = new Audio("Assets/wrong.mp3");
     audio.play();
     document.querySelector(".card").style.transform = "translateX(30%)";
@@ -167,6 +180,7 @@ function checkTranslation(inputValue) {
     }, 600);
     ResetStreak();
   }
+  rnWord = getRandomWord(chooseWordlist());
 }
 
 const AddOneToStreak = () => {
@@ -186,3 +200,30 @@ const ResetStreak = () => {
   totalStreak = 0;
   document.querySelector("#StreakCounterID").innerHTML = totalStreak;
 };
+
+function currentTime() {
+  let date = new Date();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+
+  if (hh == 0) {
+    hh = 12;
+  }
+  if (hh > 12) {
+    hh = hh - 12;
+    session = "PM";
+  }
+
+  hh = hh < 10 ? "0" + hh : hh;
+  mm = mm < 10 ? "0" + mm : mm;
+  ss = ss < 10 ? "0" + ss : ss;
+
+  let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.querySelector(".timeCounter").innerText = time;
+  let t = setTimeout(function () {
+    currentTime();
+  }, 1000);
+}
+currentTime();
