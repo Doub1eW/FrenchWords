@@ -30,27 +30,37 @@
         </div>
       </div>
       <div class="GameplanHigher">
-        <div class="wrongWordTranslation"></div>
-        <div class="card" id="cardID">
-          <div class="cardTimer">00:01</div>
-          <div class="cardWord" id="cardWordID"></div>
-          <form id="inputForm" autocomplete="off" d>
-            <input
-              id="input"
-              type="text"
-              class="cardWordInput"
-              placeholder=""
-            />
-          </form>
-          <div class="StreakCounter">
-            <div class="StreakCounterIcon">
-              <img
-                src="Assets/flame.svg"
-                alt="StreakCounterIcon"
-                id="streakIcon"
+        <div class="wrongRightTimer">
+          <div class="howManyWrong">
+            <div class="howManyWrongInnerText">Incorrect</div>
+          </div>
+          <div class="middleCardTimer" id="middleTimer"></div>
+          <div class="howManyRight">
+            <div class="howManyRightInnerText">Correct</div>
+          </div>
+        </div>
+        <div class="wordCardsParent">
+          <div class="card2">
+            <div class="wrongWordTitle">TEST</div>
+            <div class="wrongWordTranslation">TEST</div>
+          </div>
+          <div class="card" id="cardID">
+            <div class="cardWord" id="cardWordID"></div>
+            <form id="inputForm" autocomplete="off" d>
+              <input
+                autofocus
+                id="input"
+                type="text"
+                class="cardWordInput"
+                placeholder=""
               />
-              <div class="StreakCounterNumber" id="StreakCounterID">0</div>
-            </div>
+            </form>
+            <div class="cardBottom"></div>
+          </div>
+
+          <div class="card3">
+            <div class="rightWordTitle">TEST</div>
+            <div class="rightWordTranslation">TEST</div>
           </div>
         </div>
       </div>

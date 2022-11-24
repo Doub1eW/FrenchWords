@@ -1,4 +1,5 @@
 totalStreak = 0;
+totalIncorrect = 0;
 
 let word;
 let rn;
@@ -12,16 +13,18 @@ function getRandomWord(wordlist) {
   let rn = wordlist[Math.floor(Math.random() * wordlist.length)];
   console.log(rn);
   document.querySelector("#cardWordID").innerHTML = rn.word;
+
   return rn;
 }
+
+document.querySelector(".card2").style.opacity = "0";
+document.querySelector(".card3").style.opacity = "0";
+document.querySelector(".howManyRightInnerText").style.opacity = "0";
+document.querySelector(".howManyWrongInnerText").style.opacity = "0";
 
 function resetPage() {
   WordlistChoice = 0;
   totalStreak = 0;
-}
-
-function callNewCard() {
-  let obj = document.querySelector(".card");
 }
 
 function setWordlistChoiceTo1() {
@@ -186,38 +189,57 @@ function moveMenuItem3Back() {
   document.querySelector(".menuitem3").style.transform = "translateY(0%)";
 }
 
+function inreaseIncorrect() {
+  let incorrect = document.querySelector(".howManyWrongInnerText");
+  incorrect++;
+  document.querySelector(".howManyWrongInnerText").innerHTML = incorrect;
+}
 function checkTranslation(inputValue) {
   if (inputValue == rnWord.translation) {
     var audio = new Audio("Assets/ding.mp3");
     audio.play();
-    (document.querySelector(".card").style.transform = "translateX(150%)"),
-      (document.querySelector(".card").style.backgroundColor = "#00ff00"),
-      (document.querySelector(".wrongWordTranslation").style.color = "#111111"),
-      setTimeout(function () {
-        //(document.querySelector(".card").style.transform = "translateY(0)"),
-        //document.querySelector(".card").style.backgroundColor = "#6c11c8";
-      }, 300);
+    (document.querySelector(".card").style.transform = "translateX(50%)"),
+      (document.querySelector(".card3").style.opacity = "1");
+    document.querySelector(".howManyRightInnerText").style.opacity = "1";
+    document.querySelector(".card3").style.backgroundColor = "#3DA917";
+    (document.querySelector(".card").style.backgroundColor = "#3DA917"),
+      (document.querySelector(".rightWordTitle").innerHTML = rnWord.word);
+    document.querySelector(".rightWordTranslation").innerHTML =
+      rnWord.translation;
+    //ResetIncorrectStreak();
+    /* (document.querySelector(".wrongWordTranslation").style.color = "#111111"), */
+    setTimeout(function () {
+      document.querySelector(".card").style.transform = "translateY(0)";
+      document.querySelector(".card").style.backgroundColor = "#6917a9";
+    }, 200);
     AddOneToStreak();
+  } else if (inputValue == "") {
+    alert("Please enter a word");
   } else {
     var audio = new Audio("Assets/wrong.mp3");
     audio.play();
-    //document.querySelector(".card").style.transform = "translateX(30%)";
-    document.querySelector(".card").style.transform = "translateX(-150%)";
+    document.querySelector(".card2").style.opacity = "1";
+    document.querySelector(".howManyWrongInnerText").style.opacity = "1";
+    document.querySelector(".card").style.transform = "translateX(-50%)";
+    /* document.querySelector(".card").style.transform = "translateX(-150%)"; */
+
+    document.querySelector(".card2").style.backgroundColor = "#A91717";
+    document.querySelector(".card").style.backgroundColor = "#A91717";
+    document.querySelector(".wrongWordTitle").innerHTML = rnWord.word;
     document.querySelector(".wrongWordTranslation").innerHTML =
       rnWord.translation;
-
-    document.querySelector(".card").style.backgroundColor = "#FF0000";
     setTimeout(function () {
       document.querySelector(".card").style.color = "white";
       //document.querySelector(".card").style.transform = "translateX(-30%)";
       //document.querySelector(".card").style.borderColor = "#FF0000";
 
-      document.querySelector(".wrongWordTranslation").style.color = "red";
+      /* document.querySelector(".wrongWordTranslation").style.color = "red"; */
     }, 150);
 
     setTimeout(function () {
-      //document.querySelector(".card").style.transform = "translateX(30%)";
-      //document.querySelector(".card").style.backgroundColor = "#FF0000";
+      document.querySelector(".card").style.transform = "translateX(0%)";
+      AddOneToIncorrect();
+      document.querySelector(".card").style.backgroundColor = "#6917A9";
     }, 300);
 
     setTimeout(function () {
@@ -232,19 +254,27 @@ function checkTranslation(inputValue) {
     }, 600);
 
     setTimeout(function () {
-      document.querySelector(".wrongWordTranslation").innerHTML = "";
+      /* document.querySelector(".wrongWordTranslation").innerHTML = ""; */
     }, 3200);
-    ResetStreak();
+    //ResetStreak();
   }
+  console.table(rnWord);
   rnWord = getRandomWord(chooseWordlist());
 }
 
 const AddOneToStreak = () => {
   totalStreak++;
 
-  document.querySelector("#StreakCounterID").innerHTML = totalStreak;
+  document.querySelector(".howManyRightInnerText").innerHTML =
+    "Correct" + " " + ":" + totalStreak;
   if (totalStreak > 5) {
   }
+};
+
+const AddOneToIncorrect = () => {
+  totalIncorrect++;
+  document.querySelector(".howManyWrongInnerText").innerHTML =
+    "Incorrect" + " " + ":" + totalIncorrect;
 };
 
 function streakOverTen() {
@@ -252,12 +282,18 @@ function streakOverTen() {
     document.querySelector(".StreakCounter").style.backgroundColor = "#00ff00";
   }
 }
+
 const ResetStreak = () => {
   totalStreak = 0;
   document.querySelector("#StreakCounterID").innerHTML = totalStreak;
 };
 
-function currentTime() {
+const ResetIncorrectStreak = () => {
+  totalIncorrect = 0;
+  document.querySelector(".howManyWrongInnerText").innerHTML = totalIncorrect;
+};
+
+/* function currentTime() {
   let date = new Date();
   let hh = date.getHours();
   let mm = date.getMinutes();
@@ -281,5 +317,5 @@ function currentTime() {
   let t = setTimeout(function () {
     currentTime();
   }, 1000);
-}
-currentTime();
+} */
+/* currentTime(); */

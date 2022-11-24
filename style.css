@@ -1,4 +1,5 @@
 @import url("https://fonts.google.com/specimen/Baloo+2");
+@import url("https://fonts.googleapis.com/css?family=Sarpanch&display=swap");
 body {
   background-color: #111111;
   color: #ffffff;
@@ -14,18 +15,21 @@ body {
   transition: 0.3s ease-in-out;
 }
 
-.card {
-  background: #6c11c8;
+.card,
+.card2,
+.card3 {
+  background: #6917a9;
 
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
   color: #ffffff;
   border-style: solid;
   border-color: #f8fdff;
   border-radius: 40px;
   margin: auto;
   padding: 20px;
-  width: 15%;
+  width: 12%;
   height: 70%;
+  /* max-height: 50vh; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -42,7 +46,7 @@ body {
 }
 
 .cardWord {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: normal;
   text-align: center;
   height: 50%;
@@ -83,7 +87,7 @@ body {
 .GameplanHigher {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 80vh;
   width: 100%;
 }
 .StreakCounter {
@@ -246,7 +250,7 @@ body {
   align-items: center;
 }
 
-.wrongWordTranslation {
+.wrongRightTimer {
   font-size: 3rem;
   border-radius: 30px;
   width: 15%;
@@ -288,4 +292,95 @@ body {
   height: 100%;
   width: 1.5%;
   background-color: #303030;
+}
+
+.newCard {
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 100%;
+}
+
+.wordCardsParent {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+}
+
+.howManyWrong,
+.howManyRight,
+.middleCardTimer {
+  width: 15%;
+  height: 100%;
+}
+
+.wrongRightTimer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 15vh;
+}
+
+.howManyWrong {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #000000;
+}
+.howManyRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #000000;
+}
+.middleCardTimer {
+  color: #000000;
+}
+
+.howManyRightInnerText,
+.howManyWrongInnerText {
+  font-family: "Sarpanch", sans-serif;
+  font-size: 4rem;
+  margin: auto;
+  color: #7c7c7c;
+}
+
+.rightWordTitle,
+.rightWordTranslation,
+.wrongWordTitle,
+.wrongWordTranslation {
+  height: 50%;
+}
+
+.card2,
+.card3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e5e5e5;
+  font-size: 4rem;
+  border: #f8fdff 2px solid;
+  transition: 0.3s ease-out;
+}
+
+#input {
+  background-color: transparent;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-radius: 0;
+  border-color: #ffffff;
+  border-width: 3px;
+  outline: none;
+  color: #ffffff;
+  font-size: 2rem;
+  width: 100%;
+  margin: auto;
 }
